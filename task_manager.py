@@ -20,6 +20,7 @@ class TaskManager(object):
         return
 
     def setup(self):
+        
         return
 
     def show_data(self, parameter):

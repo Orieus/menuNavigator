@@ -7,7 +7,7 @@
 root:
   type: branch
   options: 
-    # - create   <Some true options can be absent because the appropriate one
+    # - create   <Some true options may be missed because the appropriate one
     # - load      may have been selected by the starting command> 
     - setup
     - show_data
@@ -19,13 +19,13 @@ root:
 # In the following, each menu option is described.
 # GENERIC FORMAT OF AN OPTION DESCRIPTOR:
 # optionName:
-#   title: <Here, the text describing the option, that will be show to the user>
+#   title: <Here, the text describing the option, that will be shown to user>
 #   options: <Contains the list of submenu options>
-#     <The list of options can a simple list>
+#     <The list of options can be a simple list...>
 #     - option
 #     - option
 #     - ...
-#     <Or a list of dictionaries with keys 'parameter', 'path' or 'get_method'>
+#     <... or a list of dicts with keys 'parameter', 'path' or 'get_method'>
 #     - parameter:
 #         param0: description
 #         param1: description
@@ -34,7 +34,7 @@ root:
 #                    specified in paths2data[name], where paths2data is one the
 #                    dictionaries required to create a MenuNavigator object>
 #     - get_method: name  <Get options by calling the method name>
-#   post_opt: <Below, the options that will be activated after executiong the
+#   post_opt: <Below, the options that will be activated after executing the
 #              selected option>
 #     - option  
 #     - option
@@ -44,7 +44,7 @@ root:
 # OPTIONS FROM THE ROOT MENU
 # For each option in the root menu, some info must be provided.
 # Note, also, that specific informacion can be provided about options that do
-# not appear in the root menu, but may bi selected from the starting command
+# not appear in the root menu, but may be selected from the starting command
 # from the main script.
 create: 
   title: Create new project
