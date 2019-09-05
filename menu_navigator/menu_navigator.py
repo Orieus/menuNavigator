@@ -28,22 +28,27 @@ class MenuNavigator(object):
 
     """
 
-    def __init__(self, tm, path2menu, paths2data=None, option1=None):
+    def __init__(self, tm, path2menu, paths2data=None):
         """
         Initializes a menu navigator.
 
-        Args:
-
-            tm:     A task manager object, that will be in charge of executing
-                    all actions selected by the user through the menu
-                    interaction. Thus, it must contain:
-                        - One action method per each method specified in the
-                          menu structure
-                        - Data collection methods, required for some menus with
-                          dynamic options.
-            path2menu:  The route to the yaml file containing the menu structure
-            paths2data: A dictionary of paths to data repositories. The key is
-                    a name of the path, and the value is the path.
+        Parameters
+        ----------
+        tm : object
+            A task manager object, that will be in charge of executing all
+            actions selected by the user through the menu interaction. Thus, it
+            must contain:
+            
+            (1) One action method per method specified in the menu structure
+            (2) Data collection methods, required for some menus with dynamic
+            options.
+            
+        path2menu : str
+            The route to the yaml file containing the menu structure
+        
+        paths2data : dict or None, optional (default=None)
+            A dictionary of paths to data repositories. The key is a name of
+            the path, and the value is the path.
         """
 
         self.tm = tm                   # Task manager object
@@ -71,14 +76,23 @@ class MenuNavigator(object):
         Prints a heading mnd the subset of options indicated in the list of
         active_options, and returns the one selected by the used
 
-        Args:
-            options:        A dictionary of options
-            active_options: List of option keys indicating the available
-                            options to print. If None, all options are shown.
-            msg:            Heading mesg to be printed befor the list of
-                            available options
-            zero_option:    If 'exit', an exit option is shown
-                            If 'up', an option to go back to the main menu
+        Parameters
+        ----------
+        options : dict 
+            A dictionary of options
+        active_options : list or None, optional (default=None)
+            List of option keys indicating the available options to print.
+            If None, all options are shown.
+        msg : str or None 
+            Heading message to be printed before the list of available options
+        zero_option : str {'exit', 'up'}
+            If 'exit', an exit option is shown
+            If 'up', an option to go back to the main menu
+
+        Returns
+        -------
+        option : str
+            Selected option
         """
 
         # Print the heading messsage
@@ -127,6 +141,19 @@ class MenuNavigator(object):
     # This method is not used in the current version of this class. Consider
     # removing it.
     def request_confirmation(self, msg="     Are you sure?"):
+        """
+        Request confirmation from user
+
+        Parameters
+        ----------
+        msg : str, optional (default="    Are you sure?")
+            Message printed to request confirmation
+
+        Returns
+        -------
+        r : str {'yes', 'no'}
+            User respones
+        """
 
         # Iterate until an admissible response is got
         r = ''
@@ -138,6 +165,11 @@ class MenuNavigator(object):
     def front_page(self, title):
         """
         Prints a simple title heading the application user screen
+
+        Parameters
+        ----------
+        title : str
+            Title message to be printed
         """
 
         self.clear()
@@ -151,7 +183,18 @@ class MenuNavigator(object):
         return
 
     def navigate(self, option=None, active_options=None):
+        """
+        Manages the menu navigation loop
 
+        Parameters
+        ----------
+        options : dict 
+            A dictionary of options
+        active_options : list or None, optional (default=None)
+            List of option keys indicating the available options to print.
+            If None, all options are shown.
+        """
+        
         # #####################
         # Main interaction loop
 
