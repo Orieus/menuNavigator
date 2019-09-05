@@ -83,9 +83,9 @@ class MenuNavigator(object):
         active_options : list or None, optional (default=None)
             List of option keys indicating the available options to print.
             If None, all options are shown.
-        msg : str or None 
+        msg : str or None, optional (default=None)
             Heading message to be printed before the list of available options
-        zero_option : str {'exit', 'up'}
+        zero_option : str {'exit', 'up'}, optional (default='exit')
             If 'exit', an exit option is shown
             If 'up', an option to go back to the main menu
 
