@@ -207,7 +207,7 @@ class MenuNavigator(object):
         # This is the complete list of level-0 options.
         # The options that are shown to the user will depend on the project
         # state
-        with open(self.path2menu) as f:
+        with open(self.path2menu, 'r', encoding='utf8') as f:
             menu = yaml.safe_load(f)
 
         default_opt = menu['root']['options']
