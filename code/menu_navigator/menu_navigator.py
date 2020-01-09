@@ -13,7 +13,6 @@ import os
 import copy
 import platform
 import yaml
-import ipdb
 
 
 class MenuNavigator(object):
@@ -38,14 +37,14 @@ class MenuNavigator(object):
             A task manager object, that will be in charge of executing all
             actions selected by the user through the menu interaction. Thus, it
             must contain:
-            
+
             (1) One action method per method specified in the menu structure
             (2) Data collection methods, required for some menus with dynamic
             options.
-            
+
         path2menu : str
             The route to the yaml file containing the menu structure
-        
+
         paths2data : dict or None, optional (default=None)
             A dictionary of paths to data repositories. The key is a name of
             the path, and the value is the path.
@@ -188,13 +187,13 @@ class MenuNavigator(object):
 
         Parameters
         ----------
-        options : dict 
+        options : dict
             A dictionary of options
         active_options : list or None, optional (default=None)
             List of option keys indicating the available options to print.
             If None, all options are shown.
         """
-        
+
         # #####################
         # Main interaction loop
 

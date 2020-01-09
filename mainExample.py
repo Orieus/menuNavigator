@@ -10,11 +10,12 @@ Created on March 20 2019
 """
 
 import os
+import pathlib
 import argparse
 
 # Local imports
-from menu_navigator.menu_navigator import MenuNavigator
-from task_manager import TaskManager
+from code.menu_navigator.menu_navigator import MenuNavigator
+from code.task_manager import TaskManager
 
 # ########################
 # Main body of application
@@ -44,16 +45,16 @@ else:
 active_options = None
 query_needed = False
 
-# Create SuperGraph Project
-tm = TaskManager(project_path)
+# Create task manager object
+tm = TaskManager(project_path, path2source=args.source)
 
 # ########################
 # Prepare user interaction
 # ########################
 
-paths2data = {'input': os.path.join(project_path, 'input'),
-              'imported': os.path.join(project_path, 'imported')}
-path2menu = 'options_menu.yaml'
+paths2data = {'input': pathlib.Path('example_folder', 'input'),
+              'imported': pathlib.Path('example_folder', 'imported')}
+path2menu = pathlib.Path('config', 'options_menu.yaml')
 
 # ##############
 # Call navigator
