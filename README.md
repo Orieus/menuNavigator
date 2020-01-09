@@ -1,9 +1,9 @@
 # menuNavigator
 A generic template application to generate command-line menus
 
-## Usage
+## Example of usage
 
-For a toy example of the functionality of this package, run
+For a toy example of the functionality of this module, run
 
     python mainExample.py --p [project_folder] --source example_folder
     
@@ -11,7 +11,20 @@ where `[project_folder]` must be replaced by the path to the folder where the ap
 
 The options of the navigation tree are defined in `config/options_menu.yaml`.
 
-You should modify this file to be adapted to your python application.
+## Integrating `menuNavigator` into your application
+
+In order to integrate `menuNavigator` into your application, you do not need to modify the following files:
+
+* `code/menu_navigator/menu_navigator.py`: It contains the main class of the module, MenuNavigator, which manages the used interaction through the menus.
+
+* `code/base_taskmanager.py`
+
+You should modify the followinf files
+
+
+The options of the navigation tree are defined in `config/options_menu.yaml`.
+
+You should modify this file to fit the module to your python application.
 
 All tasks selected thhrough the menu options will be ran by methods in the `TaskManager` class in `code/task_manager.py`. You should add your own methods here to adapt the code to you application.
 
