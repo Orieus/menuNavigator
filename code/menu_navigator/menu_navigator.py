@@ -77,7 +77,7 @@ class MenuNavigator(object):
 
         Parameters
         ----------
-        options : dict 
+        options : dict
             A dictionary of options
         active_options : list or None, optional (default=None)
             List of option keys indicating the available options to print.
@@ -260,7 +260,7 @@ class MenuNavigator(object):
                 param = None
 
                 # Select parameers for the selected method
-                # for type_arg, arg in menu[option]['options'].items():
+                # for type_arg, arg in menu[option]['options'].items():
                 for opt in opts:
 
                     type_arg, arg = list(*opt.items())
@@ -276,7 +276,8 @@ class MenuNavigator(object):
                             param_opts = {p: p for p in arg}
                         else:
                             param_opts = copy.copy(arg)
-                        param = self.query_options(param_opts, zero_option='up')
+                        param = self.query_options(param_opts,
+                                                   zero_option='up')
                         all_params.append(param)
 
                     elif type_arg[:10] == 'get_method':
@@ -299,7 +300,8 @@ class MenuNavigator(object):
                                              if x != '.DS_Store']
 
                         param_opts = {f: f for f in files_and_folders}
-                        param = self.query_options(param_opts, zero_option='up')
+                        param = self.query_options(param_opts,
+                                                   zero_option='up')
                         if param != 'zero':
                             param = os.path.join(path2opts, param)
                             all_params.append(param)
