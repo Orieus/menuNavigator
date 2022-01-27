@@ -21,8 +21,8 @@ class TaskManager(baseTaskManager):
     """
 
     def __init__(self, path2project, path2source=None,
-                 config_fname='parameters.yaml', metadata_fname='metadata.pkl',
-                 set_logs=True):
+                 config_fname='parameters.yaml',
+                 metadata_fname='metadata.yaml', set_logs=True):
         """
         Opens a task manager object.
 
@@ -32,9 +32,8 @@ class TaskManager(baseTaskManager):
             Path to the application project
         config_fname : str, optional (default='parameters.yaml')
             Name of the configuration file
-        metadata_fname : str or None, optional (default=None)
+        metadata_fname : str or None, optional (default='metadata.yaml')
             Name of the project metadata file.
-            If None, no metadata file is used.
         set_logs : bool, optional (default=True)
             If True logger objects are created according to the parameters
             specified in the configuration file
