@@ -107,7 +107,6 @@ class MenuNavigator(object):
             # If no active options ar specified, all of them are printed.
             active_options = list(options.keys())
 
-        breakpoint()
         for n, opt in enumerate(active_options):
             print(' {0}. {1}'.format(n + 1, options[opt]))
 
