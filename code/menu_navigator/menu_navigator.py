@@ -180,14 +180,40 @@ class MenuNavigator(object):
 
         return
 
+    def get_options(self, tasks_only=False):
+        """
+        Returns a list of all possible actions
+
+        Parameters
+        ----------
+        tasks_only : boolean, optional (default=True)
+            If true, only options that correspond to task names (methods from
+            the task_manager class) are returned
+
+        Returns
+        -------
+        options : list of tuple (str, str)
+            A list of possible action.
+            Is action is a tuple (name_of_the_action, title), where title is
+            the description of the action taken from the options_menu file.
+        """
+
+        with open(self.path2menu, 'r', encoding='utf8') as f:
+            menu = yaml.safe_load(f)
+
+        options = [(x, menu[x]['title']) for x in menu if x != 'root']
+
+        return options
+
     def navigate(self, option=None, active_options=None, iterate=True):
         """
         Manages the menu navigation loop
 
         Parameters
         ----------
-        options : dict
-            A dictionary of options
+        option : str, optional (default=None)
+            Initial selection from the menu of options.
+            If None, the initial selection will be requested to the user
         active_options : list or None, optional (default=None)
             List of option keys indicating the available options to print.
             If None, all options are shown.
