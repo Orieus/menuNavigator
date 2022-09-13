@@ -182,7 +182,7 @@ class MenuNavigator(object):
 
     def get_options(self, tasks_only=False):
         """
-        Returns a list of all possible actions
+        Returns a list of all possible actions.
 
         Parameters
         ----------
@@ -201,7 +201,18 @@ class MenuNavigator(object):
         with open(self.path2menu, 'r', encoding='utf8') as f:
             menu = yaml.safe_load(f)
 
-        options = [(x, menu[x]['title']) for x in menu if x != 'root']
+        if tasks_only:
+            no_tasks = [k for k, v in menu.items() if k != 'root'
+                        and 'options' in v
+                        and isinstance(v['options'], list)
+                        and len(v['options']) > 0
+                        and isinstance(v['options'][0], str)]
+            options = [
+                (x, menu[x]['title']) for x in menu if x != 'root'
+                and x not in no_tasks]
+
+        else:
+            options = [(x, menu[x]['title']) for x in menu if x != 'root']
 
         return options
 
